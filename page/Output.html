@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stle.css">
+</head>
+<body>
+    <style>
+        .table-container {
+        width: 100%;
+        margin: 20px auto;
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        min-width: 600px;
+      }
+
+      th,
+      td {
+        border: 1px solid #575757;
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      th {
+        background-color: #f4f4f4;
+      }
+
+      .btn-utama {
+        margin: 20px auto;
+      }
+
+      @media (max-width: 768px) {
+        th,
+        td {
+          padding: 6px;
+          font-size: 12px;
+        }
+      }
+    </style>
+    <nav class="navbar">
+        <div class="container">
+          <a href="https://www.smkn8malang.sch.id/" class="logo"
+            ><img src="../asset/K8Anyar.png" alt="" class="gambar" width="15%"
+          /></a>
+  
+          <ul class="menu">
+            <li><a href="../index.html#welcome"> Home</a></li>
+            <li><a href="../index.html#about"> About</a></li>
+            <li><a href="items.html">Items</a></li>
+            <li><a href="form.html">Loan Items</a></li>
+            <li><a href="contact.html"> Contact</a></li>
+          </ul>
+          <div class="tombol">&#9776;</div>
+        </div>
+      </nav>
+    <table id="dataTable" style="margin-top: 200px;">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Peminjam</th>
+            <th>Nama Petugas</th>
+            <th>Kelas</th>
+            <th>Barang</th>
+            <th>Jumlah</th>
+            <th>Jam Peminjaman</th>
+            <th>Tanggal Peminjaman</th>
+            <!-- <th>Aksi</th> -->
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <script>
+      //Menampilkan struk dari js Form 
+        window.onload = function () {
+        const users = JSON.parse(localStorage.getItem("users"));
+        const tableBody = document.getElementById("tableBody");
+        if (users && users.length > 0) {
+          users.forEach((user, index) => {
+            tableBody.innerHTML += `
+              <tr>
+                <td>${index + 1}</td>
+              <td>${user.peminjam}</td>
+              <td>${user.petugas}</td>
+              <td>${user.kelas}</td>
+              <td>${user.barang}</td>
+              <td>${user.jumlah}</td>
+              <td>${user.jamPinjam}</td>
+              <td>${user.date}</td>
+              </tr>
+            `;
+          });
+        } else {
+          tableBody.innerHTML =
+            "<tr><td colspan='8'>Data tidak ditemukan</td></tr>";
+        }
+      };
+      </script>
+</body>
+</html>

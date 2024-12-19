@@ -1,0 +1,324 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(255, 221, 167);
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(252, 251, 251, 0);
+    padding: 1rem;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(182, 180, 177, 0.8);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar .menu a:hover {
+    color: #a32323;
+}
+
+
+.gambar {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu{
+    margin: 0;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding-left: 0;
+    margin-right: 10px;
+}
+
+.menu li a{
+    padding: 10;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.tombol:hover{
+    cursor: pointer;
+}
+.tombol {
+    display: none;
+    color: white;
+    font-size: 14pt;
+}
+
+.btn-primary{
+    background: #c01a1a; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    text-decoration: none;  
+   }
+   
+   .btn-primary:hover{
+       background: #c01e1e;
+   }
+   
+   .btn-primary:active{
+       background: #e72e2e;
+   }
+
+   .welcome-text{
+    position: relative;
+    color: white;
+    z-index: 1;
+    text-align: center;
+}
+
+.welcome-section{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(asset/Kantor.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.daftar{
+    height: 500px;
+    display: flex;
+    position: absolute;
+}
+.welcome-section:before{
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+        .menu{
+            display: none;
+        }
+        .tombol{
+            display: block;
+        }
+        .menu.aktif{
+            display: inline-block;
+            position: absolute;
+            top: 64px;
+            background:#b3acac;
+            padding: 10px 20px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        .menu.aktif li a{
+            padding: 10px;
+            display: inline-block !important;
+        }
+
+        .menu li a:hover {
+            color: #645a5a;
+            border-bottom: 2px solid #272525;
+            transform: scale(1.1);
+            margin-left: 20px
+        } 
+    }
+
+    .menu li a:hover {
+        color: #e9e3e3;
+        border-bottom: 2px solid #eee8e8;
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .About-section{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #dac0a3;
+        height: 500px;
+    }
+    .image-container{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        
+    }
+    .image-container img{
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    
+    .About-container{
+        flex: 1;
+        padding: 20px;
+        margin-left: 30px;
+    }
+    
+    .About-text h2{
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .About-text p{
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .form-section{
+        padding: 55px;
+        background-color: #dac0a3;
+        text-align: center;
+    }
+.form-section h2{
+    font-size: 2.5rem;
+    margin-bottom: 45px;
+}
+
+.form{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f7f7;
+    padding: 30px 50px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+}
+
+.form-group{
+ margin-bottom: 20px;
+ text-align: left;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.form-group input, .form-group textarea{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.form-group textarea{
+    resize: none;
+}
+
+.button{
+    background-color: #000000;
+    color: #f9f7f7;
+}
+
+#contact{
+    max-width: 600px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 10px 40px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+/* .pic{
+    width: 400px;
+    height: 300px;
+    border: solid #645a5a;
+    border-radius: 13px;
+    box-shadow: 4px 7px 7px 0px #272525;
+    cursor: pointer;
+    margin: 10px;
+    transition: 400ms;
+}
+
+.pic:hover{
+    filter: grayscale(1);
+    transform: scale(1.03);
+} */
+
+.photo-gallery{
+    width: 90%;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.pic{
+    /* filter: grayscale(100%); */
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgray;
+}
+/* .pic:hover{
+    filter: grayscale(0%);
+    cursor: pointer;
+    transition: 1s ease all;
+    border: 1px solid white;
+} */
+.pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Dropdown dengan gaya khusus */
+.image-dropdown {
+    width: 250px;
+    padding: 5px;
+    font-size: 16px;
+    background-image: url('VGA.jpg, Laptop.jpeg, Proyektor.jpg'); /* Gambar default */
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 60px; /* Ruang untuk gambar */
+}
+
+/* Perbarui gambar saat dropdown terbuka */
+.image-dropdown option {
+    padding: 10px;
+    font-size: 16px;
+}
+

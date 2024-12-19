@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../stle.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap-reboot.min.css"> -->
+    <style>
+        .table-container {
+          width: 100%;
+          margin: 20px auto;
+          overflow-x: auto;
+        }
+  
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          min-width: 600px;
+        }
+  
+        th,
+        td{
+          border: 1px solid #575757;
+          padding: 8px;
+          text-align: center;
+          font-size: 14px;
+        }
+  
+        th {
+          background-color: #f4f4f4;
+          z-index: 10;
+        }
+
+        #tableBody{
+            background-color: aliceblue;
+        }
+  
+        @media (max-width: 768px) {
+          th,
+          td {
+            padding: 6px;
+            font-size: 12px;
+          }
+        }
+      </style>
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="container">
+        <a href="https://www.smkn8malang.sch.id/" class="logo"
+          ><img src="../asset/K8Anyar.png" alt="" class="gambar" width="15%"
+        /></a>
+
+        <ul class="menu">
+          <li><a href="../index.html#welcome"> Home</a></li>
+          <li><a href="../index.html#about"> About</a></li>
+          <li><a href="items.html">Items</a></li>
+          <li><a href="#">Loan Items</a></li>
+          <li><a href="contact.html"> Contact</a></li>
+        </ul>
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+
+    <section class="form-section">
+        <h2>Loan Form</h2>
+        <form action="" id="put" class="form" id="inp">
+        <div class="form-group">
+            <label for="peminjam">Borrower Name:</label>
+            <input type="text" name="borrower" id="borrower" required>
+         </div>
+
+         <div class="form-group">
+            <label for="Petugas">Officer:</label>
+        <select name="Nama-Petugas" id="petugas" required>
+            <option value=""></option>
+            <option value="Piket 1">Piket 1</option>
+            <option value="Piket 2">Piket 2</option>
+            <option value="Piket 3">Piket 3</option>
+            <option value="Piket 4">Piket 4</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+        <label for="class">Choose Class:</label>
+        <select name="class" id="Class">
+            <option value=""></option>
+            <option value="X RPL A">X RPL A</option>
+            <option value="X RPL B">X RPL B</option>
+            <option value="X RPL C">X RPL C</option>
+            <option value="X RPL D">X RPL D</option>
+            <option value="XI RPL A">XI RPL A</option>
+            <option value="XI RPL B">XI RPL B</option>
+            <option value="XI RPL C">XI RPL C</option>
+            <option value="XI RPL D">XI RPL D</option>
+            <option value="XII RPL A">XII RPL A</option>
+            <option value="XII RPL B">XII RPL B</option>
+            <option value="XII RPL C">XII RPL C</option>
+            <option value="XII RPL D">XII RPL D</option>
+        </select>
+        </div>
+
+            <div class="form-group">
+                <label for="items">Select Items:</label>
+                <select name="items" id="items" class="image-dropdown">
+                    <option value=""></option>
+                    <option data-img="../asset/VGA.jpg" value="VGA Cable">VGA Cable</option> <!--Menggunakakn data-image supaya option bisa memunculkan image-->
+                    <option data-img="../asset/HDMI.avif" value="HDMI Cable">HDMI Cable</option>
+                    <option data-img="../asset/Roll.jpeg" value="Roll Cable">Roll Cable</option>
+                    <option data-img="../asset/Proyektor.jpg" value="Projector">Projector</option>
+                    <option data-img="../asset/Laptop.jpeg" value="Laptop">Laptop</option>
+                    <option data-img="../asset/Speaker.jpeg" value="Speaker">Speaker</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="jumlah">How much the amount borrowed:</label>
+                <input type="text" name="jumlah" id="jumlah">
+            </div>
+            <div class="form-group">
+                <label for="jamPinjam">Loan Time:</label>
+                <input type="time" name="jamPinjam" id="jamPinjam">
+            </div>
+            <div class="form-group">
+                <label for="tanggal">Date:</label>
+                <input type="date" name="date" id="date">
+            </div>
+
+            <button type="submit" class="button" onclick="addData()">Submit</button>
+        </form>
+    </section>
+
+</form>
+<hr style="margin-top: 50px" />
+<h2 style="text-align: center">Penyimpanan Data</h2>
+<div class="table-container">
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama Peminjam</th>
+        <th>Nama Petugas</th>
+        <th>Kelas</th>
+        <th>Barang</th>
+        <th>Jumlah</th>
+        <th>Jam Peminjaman</th>
+        <th>Tanggal Peminjaman</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+  <button
+    type="submit"
+    onclick="window.location.href='Output.html'"
+    class="btn-utama"
+    style="margin-top: 30px"
+  >
+    Ambil Struk
+  </button>
+</div>
+</section>
+    <script>
+              const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".navbar");
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+      });
+
+      window.onload = function () {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0"); // Mengatur hari, bulan dan taun secara otomatis
+        const dd = String(today.getDate()).padStart(2, "0");
+        const todayString = `${yyyy}-${mm}-${dd}`;
+        document.getElementById("date").value = todayString;
+        displayData();
+      };
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      //Menambah data ke database
+      function addData() {
+          const peminjam = document.getElementById("borrower").value;
+          const petugas = document.getElementById("petugas").value;
+          const kelas = document.getElementById("Class").value;
+          const barang = document.getElementById("items").value;
+          const jumlah = document.getElementById("jumlah").value;
+          const jamPinjam = document.getElementById("jamPinjam").value;
+          const date = document.getElementById("date").value;
+
+          if (
+            peminjam &&
+            petugas &&
+            kelas &&
+            barang &&
+            jumlah &&
+            jamPinjam &&
+            date
+          ) {
+            const newData = {
+                peminjam,
+                petugas,
+                kelas,
+                barang,
+                jumlah,
+                jamPinjam,
+                date,
+            };
+        users.push(newData);
+        
+        localStorage.setItem("users", JSON.stringify(users));
+
+        document.getElementById("inp").reset();
+        displayData();
+        }else{
+            alert("Isi semua data terlebih dahulu");
+        }
+    }
+    //Menampilkan data local storage
+    function displayData() {
+        const tableBody = document.getElementById("tableBody");
+        tableBody.innerHTML = "";
+        users.forEach((user, index) => {
+          tableBody.innerHTML += `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${user.peminjam}</td>
+              <td>${user.petugas}</td>
+              <td>${user.kelas}</td>
+              <td>${user.barang}</td>
+              <td>${user.jumlah}</td>
+              <td>${user.jamPinjam}</td>
+              <td>${user.date}</td>
+              <td>
+                <button onclick="editData(${index})" class="button">Edit</button>
+                <button onclick="deleteData(${index})" class="button">Hapus</button>
+              </td>
+            </tr>
+          `;
+        });
+      }
+      //Menghapus data
+      function deleteData(index) {
+        users.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(users));
+        displayData();
+      }
+      //Mengedit data
+      function editData(index) {
+        const user = users[index];
+        document.getElementById("borrower").value = user.peminjam;
+        document.getElementById("petugas").value = user.petugas;
+        document.getElementById("Class").value = user.kelas;
+        document.getElementById("items").value = user.barang;
+        document.getElementById("jumlah").value = user.jumlah;
+        document.getElementById("jamPinjam").value = user.jamPinjam;
+        document.getElementById("date").value = user.date;
+
+        users.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(users));
+        displayData();
+      }
+      //Merubah tampilan dropdown menjadi gambar
+      const dropdown = document.getElementById('items');
+
+dropdown.addEventListener('change', function () {
+    const selectedOption = dropdown.options[dropdown.selectedIndex];
+    const imgUrl = selectedOption.getAttribute('data-img');
+    dropdown.style.backgroundImage = `url(${imgUrl})`;
+});
+
+    </script>
+  </body>
+</html>
+ 

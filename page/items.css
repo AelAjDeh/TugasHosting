@@ -1,0 +1,201 @@
+/* .photo-gallery{
+  width: 90%;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.pic{
+  position: relative;
+  height: 230px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px lightgray;
+}
+.pic img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+} */
+
+body{
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(234, 188, 141);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(252, 251, 251, 0);
+  padding: 1rem;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(182, 180, 177, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar .menu a:hover {
+  color: #a32323;
+}
+
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu{
+  margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding-left: 0;
+  margin-right: 10px;
+}
+
+.menu li a{
+  padding: 10;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.tombol:hover{
+  cursor: pointer;
+}
+.tombol {
+  display: none;
+  color: white;
+  font-size: 14pt;
+}
+
+.daftar{
+  display: flex;
+  position: relative;
+  height: 400px;
+  width: 1000px;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+  .photo-gallery{
+    flex: 0 0 300px;
+  }
+
+.daftar .photo-gallery {
+  position: relative;
+  border-radius: 10px;
+}
+
+.daftar .photo-gallery .front{
+   position: relative;
+   display: flex;
+   height: 200px;
+   width: 300px;
+   background-color: darkgoldenrod;
+   justify-content: center;
+   align-items: center;
+   transform: translateY(100px);
+   transition: 0.5s;
+   z-index: 1;
+}
+
+.photo-gallery:hover .front{
+  background-color: antiquewhite;
+  transform: translateY(0px);
+}
+
+.daftar .photo-gallery .front .content{
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.daftar .photo-gallery:hover .front .content{
+  opacity: 1;
+}
+
+.daftar .photo-gallery .pic{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* background: #a32323; */
+  transition: 0.7s;
+  z-index: 1;
+}
+
+.barang{
+  height: 200px;
+  width: 300px;
+}
+
+.daftar .photo-gallery .pic img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 80px;
+  transform: translate(-50%, -50%);
+  transition: 0.7s;
+}
+
+  a{
+    text-decoration: none;
+  }
+
+.daftar .photo-gallery .back{
+  position: relative;
+  display: flex;
+  padding: 20px;
+  height: 200px;
+  width: 300px;
+  background: #6d4037;
+  justify-content: center;
+  align-items: center ;
+  box-sizing: border-box;
+  box-shadow: 0 23px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+  transition: 0.5s;
+}
+
+.daftar .photo-gallery:hover .back{
+  transform: translateY(0);
+}
+
+.daftar .photo-gallery .back p{
+  margin: 0;
+  padding: 0;
+  color: aliceblue;
+  text-align: center;
+}
+
+.daftar .photo-gallery .back h3{
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 34px;
+  color: bisque;
+}
